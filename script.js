@@ -1,70 +1,71 @@
-// Carregar tarefas salvas no localStorage
-document.addEventListener('DOMContentLoaded', loadTasks);
+let tarefas = [];
 
-// Função para adicionar uma nova tarefa
-function addTask() {
-    const taskInput = document.getElementById('new-task');
-    const taskValue = taskInput.value.trim();
+document.getElementById('adicionar-btn').addEventListener('click', function() {
+  const novaTarefaInput = document.getElementById('nova-tarefa');
+  const tarefa = novaTarefaInput.value;
 
-    if (taskValue === '') {
-        alert('Por favor, insira uma tarefa.');
-        return;
-    }
+  if (tarefa) {
+    tarefas.push(tarefa);
+    novaTarefaInput.value = '';
+    salvarTarefas();
+    renderizarTarefas();
+  }
+});
 
-    const taskList = document.getElementById('task-list');
+function renderizarTarefas() {
+  const lista = document.getElementById('lista-tarefas');
+  lista.innerHTML = '';
 
-    const newTaskItem = document.createElement('li');
-    newTaskItem.textContent = taskValue;
+  tarefas.forEach((tarefa, index) => {
+    const li = document.createElement('li');
+    li.textContent = tarefa;
 
-    // Botão de remover tarefa
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remover';
-    removeButton.onclick = function() {
-        taskList.removeChild(newTaskItem);
-        removeTask(taskValue);
-    };
-
-    newTaskItem.appendChild(removeButton);
-    taskList.appendChild(newTaskItem);
-
-    // Salvar a tarefa no localStorage
-    saveTask(taskValue);
-
-    // Limpar o campo de entrada
-    taskInput.value = '';
-}
-
-// Função para salvar a tarefa no localStorage
-function saveTask(task) {
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// Função para remover a tarefa do localStorage
-function removeTask(task) {
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks = tasks.filter(t => t !== task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// Função para carregar as tarefas salvas
-function loadTasks() {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const taskList = document.getElementById('task-list');
-
-    tasks.forEach(task => {
-        const newTaskItem = document.createElement('li');
-        newTaskItem.textContent = task;
-
-        const removeButton = document.createElement('button');
-        removeButton.textContent = 'Remover';
-        removeButton.onclick = function() {
-            taskList.removeChild(newTaskItem);
-            removeTask(task);
-        };
-
-        newTaskItem.appendChild(removeButton);
-        taskList.appendChild(newTaskItem);
+    const btnRemover = document.createElement('button');
+    btnRemover.textContent = 'Remover';
+    btnRemover.className = 'remove-btn';
+    btnRemover.addEventListener('click', function() {
+      removerTarefa(index);
     });
+
+    li.appendChild(btnRemover);
+    lista.appendChild(li);
+  });
 }
+
+function removerTarefa(index) {
+  tarefas.splice(index, 1);
+  salvarTarefas();
+  renderizarTarefas();
+}
+
+function salvarTarefas() {
+  localStorage.setItem('tarefas', JSON.stringify(tarefas));
+}
+
+function carregarTarefas() {
+  const tarefasSalvas = localStorage.getItem('tarefas');
+  if (tarefasSalvas) {
+    tarefas = JSON.parse(tarefasSalvas);
+    renderizarTarefas();
+  }
+}
+
+document.getElementById('share-btn').addEventListener('click', function() {
+  const listaCompartilhar = tarefas.map(tarefa => `- ${tarefa}`).join('\n');
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'Minha Lista de Tarefas',
+      text: listaCompartilhar,
+    }).then(() => {
+      console.log('Compartilhamento realizado com sucesso');
+    }).catch((error) => {
+      console.error('Erro ao compartilhar:', error);
+    });
+  } else {
+    alert('Compartilhamento não suportado neste dispositivo.');
+  }
+});
+
+// Carregar tarefas ao iniciar
+carregarTarefas();
