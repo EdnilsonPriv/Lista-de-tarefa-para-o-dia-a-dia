@@ -1,54 +1,70 @@
-# Lista de Tarefas - PWA
 
-Este projeto é uma aplicação web de lista de tarefas (to-do list) desenvolvida em HTML, CSS e JavaScript. Ela foi transformada em um **Progressive Web App (PWA)**, o que permite que seja instalada em dispositivos móveis e utilizada offline.
+Lista de Tarefas para o Dia a Dia
 
-## Funcionalidades
+Descrição
 
-- Adicionar novas tarefas
-- Remover tarefas existentes
-- Tarefas salvas localmente usando `localStorage`
-- PWA: pode ser instalado no celular e funcionar offline
-- Design responsivo, otimizado para dispositivos móveis
+Este projeto é uma aplicação simples de lista de tarefas, desenvolvida para ajudar a organizar e gerenciar as atividades do dia a dia. A ideia é permitir que os usuários adicionem, visualizem, editem e removam tarefas de forma eficiente e intuitiva.
 
-## Como Funciona
+Funcionalidades
 
-### Adicionar e Remover Tarefas
+Adicionar Tarefas: Permite adicionar novas tarefas à lista.
 
-1. Adicione uma nova tarefa digitando no campo de texto e clicando no botão "Adicionar".
-2. As tarefas são exibidas abaixo, com um botão "Remover" para cada uma.
-3. As tarefas são salvas no navegador, então se você fechar e reabrir o aplicativo, elas ainda estarão lá.
+Visualizar Tarefas: Exibe todas as tarefas atuais em uma lista.
 
-### Instalação no Celular (PWA)
+Editar Tarefas: Oferece a possibilidade de modificar o texto das tarefas existentes.
 
-1. Abra o app no navegador do seu celular.
-2. Você verá uma opção para adicionar o app à tela inicial (apenas em navegadores compatíveis como Google Chrome).
-3. O app será instalado e poderá ser acessado diretamente da tela inicial como um aplicativo nativo.
+Remover Tarefas: Permite excluir tarefas da lista.
 
-## Como Hospedar o Projeto no GitHub Pages
 
-Siga os passos abaixo para hospedar a aplicação usando o GitHub Pages:
+Tecnologias Utilizadas
 
-1. Crie um repositório no [GitHub](https://github.com/).
-2. Faça upload dos arquivos do projeto:
-   - `index.html`
-   - `style.css`
-   - `script.js`
-   - `manifest.json`
-   - `service-worker.js`
-   - Ícones (`icon-192x192.png`, `icon-512x512.png`)
-3. No repositório, vá até as **Configurações** e role até a seção **GitHub Pages**.
-4. Escolha a **branch** principal (geralmente `main` ou `master`).
-5. Salve as configurações e o GitHub fornecerá um link onde a sua aplicação ficará disponível.
+HTML/CSS: Estrutura e estilização da interface do usuário.
 
-## Estrutura do Projeto
+JavaScript: Lógica de funcionamento da aplicação, incluindo a manipulação da lista de tarefas e o armazenamento dos dados.
 
-```bash
-/
-├── index.html           # Página principal do app
-├── style.css            # Arquivo de estilos
-├── script.js            # Lógica da lista de tarefas e localStorage
-├── manifest.json        # Manifest para tornar o app um PWA
-├── service-worker.js    # Service Worker para cache e funcionamento offline
-├── icon-192x192.png     # Ícone de 192x192 pixels
-├── icon-512x512.png     # Ícone de 512x512 pixels
-└── README.md            # Documentação do projeto
+
+Como Usar
+
+1. Clone o Repositório:
+
+git clone https://github.com/EdnilsonPriv/Lista-de-tarefa-para-o-dia-a-dia.git
+
+
+2. Acesse o Diretório do Projeto:
+
+cd Lista-de-tarefa-para-o-dia-a-dia
+
+
+3. Abra o Arquivo index.html:
+
+Abra o arquivo index.html em seu navegador para visualizar e interagir com a aplicação.
+
+
+
+
+Estrutura do Projeto
+
+index.html: Arquivo HTML principal que estrutura a aplicação.
+
+style.css: Arquivo de estilos que define a aparência da aplicação.
+
+script.js: Arquivo JavaScript responsável pela lógica de funcionamento da lista de tarefas.
+
+
+Contribuições
+
+Sinta-se à vontade para contribuir com melhorias e correções! Para contribuir, siga estas etapas:
+
+1. Faça um fork deste repositório.
+
+
+2. Crie uma branch para sua nova feature ou correção.
+
+
+3. Envie um pull request com uma descrição clara das suas alterações.
+
+
+
+Licença
+
+Este projeto é licenciado sob a Licença MIT.
