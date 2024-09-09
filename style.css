@@ -77,6 +77,15 @@ li button {
     cursor: pointer;
 }
 
+button.remove-btn {
+  font-size: 12px; /* Reduz o tamanho da fonte */
+  padding: 5px; /* Ajuste o espaçamento interno */
+  margin-left: 10px;
+  background-color: #ff5c5c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+    }
 li button:hover {
     background-color: #c82333;
 }
