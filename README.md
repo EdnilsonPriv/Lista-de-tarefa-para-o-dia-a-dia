@@ -22,3 +22,41 @@ Este projeto é uma aplicação simples de lista de tarefas, desenvolvida para a
 
    ```bash
    git clone https://github.com/EdnilsonPriv/Lista-de-tarefa-para-o-dia-a-dia.git
+2. Acesse o Diretório do Projeto:
+
+cd Lista-de-tarefa-para-o-dia-a-dia
+
+
+3. Abra o Arquivo index.html:
+
+Abra o arquivo index.html em seu navegador para visualizar e interagir com a aplicação.
+
+
+
+
+Estrutura do Projeto
+
+index.html: Arquivo HTML principal que estrutura a aplicação.
+
+style.css: Arquivo de estilos que define a aparência da aplicação.
+
+script.js: Arquivo JavaScript responsável pela lógica de funcionamento da lista de tarefas.
+
+
+Contribuições
+
+Sinta-se à vontade para contribuir com melhorias e correções! Para contribuir, siga estas etapas:
+
+1. Faça um fork deste repositório.
+
+
+2. Crie uma branch para sua nova feature ou correção.
+
+
+3. Envie um pull request com uma descrição clara das suas alterações.
+
+
+
+Licença
+
+Este projeto é licenciado sob a Licença MIT.
